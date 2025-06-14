@@ -1,0 +1,62 @@
+<?php
+// require_once 'includes/auth.php'; // Assuming this handles authentication and sets $error
+// Simulated error for demonstration - remove in production
+// $error = "Invalid username or password.";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | biiApp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font (optional, Tailwind uses a sans-serif stack by default) */
+        body {
+            font-family: 'Inter', sans-serif; /* Inter is a clean, modern font */
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 to-slate-800 min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-slate-800 p-8 md:p-12 rounded-xl shadow-2xl w-full max-w-md">
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-sky-400">biiApp</h1>
+            <p class="text-slate-400 mt-2">Welcome back! Please login to your account.</p>
+        </div>
+
+        <form method="POST" action=""> <?php if (isset($error) && !empty($error)): ?>
+                <div class="bg-red-500/20 border border-red-600 text-red-400 px-4 py-3 rounded-lg relative mb-6" role="alert">
+                    <strong class="font-bold">Oops!</strong>
+                    <span class="block sm:inline"><?php echo htmlspecialchars($error); ?></span>
+                </div>
+            <?php endif; ?>
+
+            <div class="mb-6">
+                <label for="username" class="block mb-2 text-sm font-medium text-sky-300">Username</label>
+                <input type="text" name="username" id="username"
+                       class="bg-slate-700 border border-slate-600 text-slate-100 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-3 placeholder-slate-400 transition duration-300 ease-in-out"
+                       placeholder="your_username" required>
+            </div>
+
+            <div class="mb-8">
+                <label for="password" class="block mb-2 text-sm font-medium text-sky-300">Password</label>
+                <input type="password" name="password" id="password"
+                       class="bg-slate-700 border border-slate-600 text-slate-100 text-sm rounded-lg focus:ring-sky-500 focus:border-sky-500 block w-full p-3 placeholder-slate-400 transition duration-300 ease-in-out"
+                       placeholder="••••••••" required>
+            </div>
+
+            <button type="submit"
+                    class="w-full text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-none focus:ring-sky-500/50 font-medium rounded-lg text-sm px-5 py-3 text-center transition duration-300 ease-in-out transform hover:scale-105">
+                Login to biiApp
+            </button>
+
+            </form>
+    </div>
+
+    <footer class="absolute bottom-4 left-0 right-0 text-center">
+        <p class="text-xs text-slate-500">&copy; <?php echo date("Y"); ?> biiApp. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
