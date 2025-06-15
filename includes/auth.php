@@ -1,5 +1,5 @@
 <?php
-#require_once 'db.php'; // For DB access if needed (optional)
+require_once 'db.php'; // For DB access if needed (optional)
 require_once 'load_env.php'; // Load the .env variables
 
 
